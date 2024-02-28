@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <base href="https//web21.senior.com.br:40401/rondaweb/" />
+    <link href="css/sgi.css" rel="StyleSheet" type="text/css" />
+    <link href="css/sgi.css.cli" rel="StyleSheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="multilingua.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <TransStr strid="TC000005350">
+      <title>Controle</title>
+    </TransStr>
+    <style type="text/css">
+      .uib-datagrid {
+        font-family: Open Sans, sans-serif;
+        color: #333;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .max-width {
+        width: 100%;
+        min-width: 100%;
+      }
+
+      .EDIT_NORMAL {
+        display: block;
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #166f3c;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .table,
+      td {
+        text-align: left;
+        padding-left: 10px;
+        padding-bottom: 7px;
+      }
+
+      .navbar,
+      input {
+        padding-left: 10px;
+      }
+
+      .COMBO_BOX {
+        width: 285px;
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #166f3c;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0.5rem;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.2;
+        color: inherit;
+      }
+
+      .btn-outline-primary {
+        color: #fff !important;
+        background-color: #166f3c;
+        background-image: none;
+        border-color: #166f3c;
+      }
+
+      .btn-outline-primary:hover {
+        color: #ffffff;
+        background-color: #166f3f;
+        background-image: none;
+        border-color: #166f3f;
+      }
+
+      .modal {
+        position: fixed; /* Fixa a posição do modal */
+        z-index: 1; /* Coloca o modal no topo */
+        left: 0;
+        top: 0;
+        width: 100%; /* Largura total */
+        height: 100%; /* Altura total */
+        overflow: auto; /* Habilita o scroll se necessário */
+        background-color: rgb(0, 0, 0); /* Cor de fundo do modal */
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.65
+        ); /* Cor de fundo do modal com opacidade */
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% do topo e centralizado */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90%; /* Poderia ser mais ou menos, dependendo do tamanho da tela */
+      }
+    </style>
+    <script type="text/javascript">
+      var fram;
+      var for1;
+      var isProcessing = false;
+      var checkedAll = false;
+      function Clicar(tipo) {
+        if (tipo == "Alterar") {
+          console.log("Antes de sendEvent");
+          sendEvent("ActionEvent", "Gravar");
+          console.log("Depois de sendEvent");
+          //if (!confirm(TransStr("TC000001248", "Confirma salvar?"))) {
+          //return;
+          //}
+        }
+        fram = parent.frames[1].self;
+        for1 = fram.document.forms[0];
+        for1.STATUS.value = tipo;
+        isProcessing = true;
+        for1.submit();
+      }
+      function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i] != source) checkboxes[i].checked = source.checked;
+        }
+      }
+      //$(".alert").alert();
+      //$(".alert").alert("close");
+    </script>
+  </head>
+  <body>
+    <div id="ok" class="alert alert-success" role="alert">
+      <TransStr strid="TC000005038"
+        ><strong>Aceite realizado.</strong> Preencha até o final e salve para
+        aprovação do RH.</TransStr
+      >
+    </div>
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+      <!-- Conteúdo do Modal -->
+      <div class="modal-content">
+        <p>
+          "TERMOS DE ACEITE - Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam
+          nonummy auctor massa. Pellentesque habitant morbi tristique senectus
+          et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque
+          purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis,
+          felis ut adipiscing. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.
+          Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique
+          senectus et netus et malesuada fames ac turpis egestas. Nulla at
+          risus. Quisque purus magna, auctor et, sagittis ac, posuere eu,
+          lectus. Nam mattis, felis ut adipiscing. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis
+          condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi
+          tristique senectus et netus et malesuada fames ac turpis egestas.
+          Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere
+          eu, lectus. Nam mattis, felis ut adipiscing.
+        </p>
+        <p><b>Você aceita os termos acima?"</b></p>
+        <button onclick="fecharModal()">Aceitar</button>
+      </div>
+    </div>
+    <script>
+      // Pega o modal
+      var modal = document.getElementById("myModal");
+      var MyOk = document.getElementById("ok");
+      MyOk.style.display = "none";
+
+      // Mostra o modal quando a página carrega
+      window.onload = function () {
+        modal.style.display = "block";
+      };
+      // Função para fechar o modal
+      function fecharModal() {
+        modal.style.display = "none";
+        MyOk.style.display = "block";
+        Clicar("Consultar", "0");
+        return false;
+      }
+    </script>
+    <nav>
+      <form class="form-inline my-2 my-lg-0;margin-left:10px;">
+        <span id="edUSU_NumEmp" hidden> [$edUSU_NumEmp$] </span>
+        <span id="edUSU_TipCol" hidden> [$edUSU_TipCol$] </span>
+        <span id="edUSU_NumCad" hidden> [$edUSU_NumCad$] </span>
+        <span id="edUSU_DatReg" hidden> [$edUSU_DatReg$] </span>
+      </form>
+    </nav>
+    <span id="sds-page-title"><strong>Censo ESG</strong></span>
+    <div class="templateBody" style="max-width: 100%">
+      <table class="templateContent" original>
+        <tr>
+          <td class="templateLabelRow">Grau de Instrução</td>
+          <td class="templateContentRow">[$edUSU_GraIns$] [$Label1$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Curso Formação</td>
+          <td class="templateContentRow">[$edUSU_CodAcn$] [$Label2$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Unidade Trabalho</td>
+          <td class="templateContentRow">[$edUSU_UniTra$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Pronome Adequado</td>
+          <td class="templateContentRow">[$edUSU_ProNom$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Orientação afetivo-sexual</td>
+          <td class="templateContentRow">[$edUSU_AfeSex$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Identidade Gênero</td>
+          <td class="templateContentRow">[$edUSU_IdeGer$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qtde Filhos/Enteados</td>
+          about:blank#blocked
+          <td class="templateContentRow">[$edUSU_QtdFil$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Pessoas Moram na Casa</td>
+          <td class="templateContentRow">[$edUSU_QtdPes$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Necessidade de Adaptação Posto</td>
+          <td class="templateContentRow">[$edUSU_NesAda$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Descrição da Necessidade</td>
+          <td class="templateContentRow">[$edUSU_DesAda$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qtde Filhos/Enteados Moram</td>
+          <td class="templateContentRow">[$edUSU_QtdEnt$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Pai/Mãe Solo</td>
+          <td class="templateContentRow">[$edUSU_PaiMae$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Intolerância/Alergia Alimentar</td>
+          <td class="templateContentRow">[$edUSU_IntAle$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Desloca Trabalho</td>
+          <td class="templateContentRow">[$edUSU_DesTra$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Dieta Alimentar</td>
+          <td class="templateContentRow">[$edUSU_DieAli$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Alergia Medicamento</td>
+          <td class="templateContentRow">[$edUSU_AleMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Medicamentos</td>
+          <td class="templateContentRow">[$edUSU_DesMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Animal Estimação</td>
+          <td class="templateContentRow">[$edUSU_PosAni$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qual Animal</td>
+          <td class="templateContentRow">[$edUSU_AniEst$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Atividade Física</td>
+          <td class="templateContentRow">[$edUSU_AtiFis$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Tamanho Calçado</td>
+          <td class="templateContentRow">[$edUSU_TamCal$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Atividade Mensal</td>
+          <td class="templateContentRow">[$edUSU_AtiMen$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Tamanho Camiseta</td>
+          <td class="templateContentRow">[$edUSU_TamCam$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Modelo Camiseta</td>
+          <td class="templateContentRow">[$edUSU_ModCam$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Doador Sangue</td>
+          <td class="templateContentRow">[$edUSU_DoaSan$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Doador Medula</td>
+          <td class="templateContentRow">[$edUSU_DoaMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Contato Emergência</td>
+          <td class="templateContentRow">[$edUSU_ConEme$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Telefone Emergência</td>
+          <td class="templateContentRow">[$edUSU_TelEme$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Posição Trabalho</td>
+          <td class="templateContentRow">[$edUSU_PosTra$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Nome Social</td>
+          <td class="templateContentRow">[$edUSU_NomSoc$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Apelido</td>
+          <td class="templateContentRow">[$edUSU_ApeFun$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Raça/Etnia</td>
+          <td class="templateContentRow">[$edUSU_RacCor$] [$Label3$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Religião</td>
+          <td class="templateContentRow">[$edUSU_CodRlr$] [$Label4$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Deficiente</td>
+          <td class="templateContentRow">[$edUSU_DefFis$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Preenche Cota Deficiência</td>
+          <td class="templateContentRow">[$edUSU_CotDef$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Deficiência</td>
+          <td class="templateContentRow">[$edUSU_CodDef$] [$Label5$]</td>
+        </tr>
+      </table>
+    </div>
+    <p></p>
+    <!--div
+      id="alerta"
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+      style="display: none"
+    >
+      <strong>Salvo!</strong> Aguarde aprovação do RH.
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div-->
+    <div class="ESPACO_BOTAO_BB"></div>
+    <a href="#" onclick="Clicar('Alterar','1'); return false; ">
+      <font class="btn btn-outline-primary">
+        <TransStr strid="TC000001248">Salvar</TransStr>
+      </font>
+    </a>
+    <p></p>
+    <script>
+      function formularioRecarregado() {
+        // Cria uma nova div
+        var div = document.createElement("div");
+
+        // Adiciona as classes 'alert' e 'alert-success' à div
+        div.className = "alert alert-success";
+
+        // Adiciona uma mensagem à div
+        div.textContent = "Formulário recarregado com sucesso!";
+
+        // Adiciona a div ao corpo do documento
+        document.body.appendChild(div);
+      }
+      if (false) {
+        formularioRecarregado();
+      }
+    </script>
+  </body>
+</html>

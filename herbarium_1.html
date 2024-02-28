@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <base href="https//web21.senior.com.br:40401/rondaweb/" />
+    <link href="css/sgi.css" rel="StyleSheet" type="text/css" />
+    <link href="css/sgi.css.cli" rel="StyleSheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="multilingua.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <TransStr strid="TC000005350">
+      <title>Controle</title>
+    </TransStr>
+    <style type="text/css">
+      .uib-datagrid {
+        font-family: Open Sans, sans-serif;
+        color: #333;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .max-width {
+        width: 100%;
+        min-width: 100%;
+      }
+
+      .EDIT_NORMAL {
+        display: block;
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .table,
+      td {
+        text-align: left;
+        padding-left: 10px;
+        padding-bottom: 7px;
+      }
+
+      .navbar,
+      input {
+        padding-left: 10px;
+      }
+
+      .COMBO_BOX {
+        width: 285px;
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0.5rem;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.2;
+        color: inherit;
+      }
+
+      .btn-outline-primary {
+        color: #fff !important;
+        background-color: #007bbb;
+        background-image: none;
+        border-color: #007bbb;
+      }
+
+      .btn-outline-primary:hover {
+        color: #ffffff;
+        background-color: #23527c;
+        background-image: none;
+        border-color: #23527c;
+      }
+    </style>
+    <script type="text/javascript">
+      var fram;
+      var for1;
+      var isProcessing = false;
+      var checkedAll = false;
+      function Clicar(tipo) {
+        if (tipo == "Alterar") {
+          sendEvent("ActionEvent", "Gravar");
+          if (!confirm(TransStr("TC000001248", "Deseja salvar?"))) {
+            return;
+          }
+        }
+        fram = parent.frames[1].self;
+        for1 = fram.document.forms[0];
+        for1.STATUS.value = tipo;
+        isProcessing = true;
+        for1.submit();
+      }
+      function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i] != source) checkboxes[i].checked = source.checked;
+        }
+      }
+
+      function alertMessage() {
+        var txt;
+        var r = confirm(
+          "TERMOS DE ACEITE - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing. Você aceita os termos acima?"
+        );
+        if (r == false) {
+          //history.back();
+          window.location.href =
+            "https://web21.senior.com.br:40401/rondaweb/blank.html";
+        }
+        if (r == true) {
+          txt = "Confirma que você aceitou os termos!";
+          sendEvent("ActionEvent", "Gravar");
+          if (!confirm(TransStr("TC000001248", "Deseja salvar?"))) {
+            return;
+          }
+        }
+      }
+
+      alertMessage();
+
+      $(".alert").alert();
+
+      $(".alert").alert("close");
+    </script>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-sm fixed-top"
+      style="background-color: #f2f9f4"
+    >
+      <form class="form-inline my-2 my-lg-0;margin-left:100px;">
+        <span id="edUSU_NumEmp">
+          <input
+            class="form-control mr-sm-2"
+            name="edUSU_NumEmp"
+            value=""
+            size="30"
+            maxlength="9"
+            type="hidden"
+            placeholder="Empresa"
+        /></span>
+        <span id="edUSU_TipCol"
+          ><input
+            class="form-control mr-sm-2"
+            name="edUSU_TipCol"
+            value="1"
+            size="30"
+            maxlength="9"
+            type="hidden"
+            placeholder="Tipo Colaborador"
+        /></span>
+        <span id="edUSU_NumCad" onclick="javascript:B1('edUSU_NumCad')"
+          ><input
+            class="form-control mr-sm-2"
+            type="text"
+            id="edUSU_NumCad"
+            name="edUSU_NumCad"
+            value=""
+            size="50"
+            maxlength="9"
+            type="hidden"
+            placeholder="Colaborador"
+        /></span>
+        <div class="ESPACO_BOTAO_BB"></div>
+        <a href="#" onclick="Clicar('Consultar','0'); return false;">
+          <font class="btn btn-outline-primary">
+            <TransStr strid="TC000005038">Consultar</TransStr>
+          </font>
+        </a>
+        <div class="ESPACO_BOTAO_BB"></div>
+        <a href="#" onclick="Clicar('Alterar','1'); return false;">
+          <font class="btn btn-outline-primary">
+            <TransStr strid="TC000001248">Salvar</TransStr>
+          </font>
+        </a>
+      </form>
+    </nav>
+    <div class="" style="margin-top: 60px; width: 120px">
+      <table class="templateContent" original>
+        <tr>
+          <td><label for="NomFun">Nome</label></td>
+          <td class="templateContentRow">
+            <span id="NomFun"
+              ><input
+                class="form-control mr-sm-2"
+                type="text"
+                name="NomFun"
+                value=""
+                size="40"
+                maxlength="40"
+                placeholder=""
+                readonly
+            /></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="GraIns">Grau de Instrução</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_GraIns">[$edUSU_GraIns$]</div>
+            <label for="Label1">[$Label1$]</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="CodAcn">Curso de Formação</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_CodAcn">[$edUSU_CodAcn$]</div>
+            <label for="Label2">[$Label2$]</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="UniTra">Unidade de Trabalho</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_UniTra">[$edUSU_UniTra$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="ProNom">Pronome Adequado</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_ProNom">[$edUSU_ProNom$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="AfeSex">Orientação Afetivo-Sexual</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_AfeSex">[$edUSU_AfeSex$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="IdeGer">Identidade de Gênero</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_IdeGer">[$edUSU_IdeGer$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="NesAda">Adaptação do Posto</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_NesAda">[$edUSU_NesAda$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="QtdFil">Quantidade de Filhos/Enteados</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_QtdFil">[$edUSU_QtdFil$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="QtdPes">Pessoas que Moram na Casa</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_QtdPes">[$edUSU_QtdPes$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DesAda">Descrição das Necessidades</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DesAda">[$edUSU_DesAda$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="QtdEnt">Qtd. Filhos/Enteados Moram na Casa</label>
+          </td>
+          <td class="templateContentRow">
+            <div id="edUSU_QtdEnt">[$edUSU_QtdEnt$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="PaiMae">Pai/Mãe Solo</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_PaiMae">[$edUSU_PaiMae$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="IntAle">Intolerância/Alergia Alimentar</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_IntAle">[$edUSU_IntAle$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DesTra">Desloca ao Trabalho</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DesTra">[$edUSU_DesTra$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DieAli">Dieta Alimentar</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DieAli">[$edUSU_DieAli$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="AleMed">Alergia a Medicamentos</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_AleMed">[$edUSU_AleMed$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DesMed">Quais Medicamentos?</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DesMed">[$edUSU_DesMed$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="PosAni">Animal Estimação</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_PosAni">[$edUSU_PosAni$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="AniEst">Qual Animal?</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_AniEst">[$edUSU_AniEst$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="AtiFis">Atividade Física</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_AtiFis">[$edUSU_AtiFis$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="TamCal">Tamanho do Calçado</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_TamCal">[$edUSU_TamCal$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="AtiMen">Atividade Mensal</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_AtiMen">[$edUSU_AtiMen$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="TamCam">Tamanho da Camiseta</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_TamCam">[$edUSU_TamCam$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="ModCam">Modelo da Camiseta</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_ModCam">[$edUSU_ModCam$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DoaSan">Doador de Sangue</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DoaSan">[$edUSU_DoaSan$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DoaMed">Doador de Medula</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DoaMed">[$edUSU_DoaMed$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="ConEme">Contato de Emergência</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_ConEme">[$edUSU_ConEme$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="TelEme">Telefone Emergência</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_TelEme">[$edUSU_TelEme$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="PosTra">Posição de Trabalho</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_PosTra">[$edUSU_PosTra$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="NomSoc">Nome Social</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_NomSoc">[$edUSU_NomSoc$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="ApeFun">Apelido</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_ApeFun">[$edUSU_ApeFun$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="RacCor">Raça/Etnia</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_RacCor">[$edUSU_RacCor$]</div>
+            <label for="Label3">[$Label3$]</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="CodRlr">Religião</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_CodRlr">[$edUSU_CodRlr$]</div>
+            <label for="Label4">[$Label4$]</label>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="DefFis">Deficiente?</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_DefFis">[$edUSU_DefFis$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="CotDef">Preenche a Cota de Deficiência?</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_CotDef">[$edUSU_CotDef$]</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="CodDef">Qual Deficiência?</label></td>
+          <td class="templateContentRow">
+            <div id="edUSU_CodDef">[$edUSU_CodDef$]</div>
+            <label for="Label5">[$Label5$]</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
