@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="cache-control" content="no-cache" />
@@ -128,6 +128,13 @@
         border: 1px solid #888;
         width: 90%;
       }
+      .templateLabelRow {
+        font-size: 1rem;
+      }
+      .templateLabelRow::after {
+        content: " *";
+        color: red;
+      }
     </style>
     <script type="text/javascript">
       var fram;
@@ -162,24 +169,44 @@
     <div id="myModal" class="modal">
       <div class="modal-content">
         <p>
-          "TERMOS DE ACEITE - Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam
-          nonummy auctor massa. Pellentesque habitant morbi tristique senectus
-          et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque
-          purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis,
-          felis ut adipiscing. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.
-          Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique
-          senectus et netus et malesuada fames ac turpis egestas. Nulla at
-          risus. Quisque purus magna, auctor et, sagittis ac, posuere eu,
-          lectus. Nam mattis, felis ut adipiscing. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis
-          condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi
-          tristique senectus et netus et malesuada fames ac turpis egestas.
-          Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere
-          eu, lectus. Nam mattis, felis ut adipiscing.
+          <b><u>Termo de Consentimento de Dados Pessoais e Sensíveis</u></b>
         </p>
-        <p><b>Você aceita os termos acima?"</b></p>
+        <p>
+          Eu, colaborador desta Empresa, através do presente termo manifesto meu
+          <b><u>CONSENTIMENTO</u></b> em informar meus dados pessoais e
+          sensíveis por motivos de atualização de informações decorrentes do meu
+          Contrato Individual de Trabalho firmado com este Empregador,
+          declarando ciência quanto ao(à):
+        </p>
+        <p>
+          1. Tratamento de dados que decorra de qualquer um dos serviços ou
+          benefícios oportunizados pelo Empregador através de empresas parceiras
+          a(o) Colaborador(a), à exemplo, mas não se limitando àquelas que
+          prestam serviços de plano de saúde, plano odontológico, seguro de
+          vida, vale alimentação, vale refeição, etc.
+        </p>
+        <p>
+          2. Tratamento de dado pessoal sensível, especificamente no que se
+          relaciona à biometria, para as finalidades de controle de ponto e à
+          saúde, para a finalidade dos exames admissional, periódico,
+          demissional e acompanhamento de estado clínico laboral.
+        </p>
+        <p>
+          Declaro que tenho ciência de que o tratamento de dados será realizado
+          enquanto vigente a relação laboral existente entre as partes ou
+          enquanto o Empregador tiver a necessidade ou obrigação legal de manter
+          meus dados, de meus dependentes ou beneficiários, sob tratamento, nos
+          termos da lei.
+        </p>
+        <p>
+          Declaro que estou ciente que o tratamento de dados se dará em estrita
+          obediência aos princípios e limites legais trazidos pela Lei Geral de
+          Proteção de Dados - LGPD, em especial ao da finalidade, adequação,
+          necessidade, livre acesso, transparência, segurança e não
+          discriminação, a partir do momento em que eu clicar no botão Aceitar
+          neste painel.
+        </p>
+        <p><b>Você aceita o termo acima?</b></p>
         <button onclick="fecharModal()">Aceitar</button>
       </div>
     </div>
@@ -196,6 +223,9 @@
         Clicar("Consultar", "0");
         return false;
       }
+      $(document).ready(function () {
+        $("#EDIT_NORMAL").mask("000.000.000-00"); // Esta é uma máscara para CPF, por exemplo.
+      });
     </script>
     <nav>
       <form class="form-inline my-2 my-lg-0;margin-left:20px;">
@@ -209,148 +239,209 @@
     <div class="templateBody" style="max-width: 100%">
       <table class="templateContent" original>
         <tr>
+          <td class="templateLabelRow">
+            Qual seu curso de formação?<b
+              title="Caso não tenha curso de formação completo escolher a opção Não se aplica"
+            >
+              (<u><font color="grey">i</font></u
+              >)</b
+            >
+          </td>
+          <td class="templateContentRow">
+            [$edUSU_CodAcn$] [$Label2$]
+            <i><font color="grey"> [Selecione]</font></i>
+          </td>
+        </tr>
+        <tr>
           <td class="templateLabelRow">Grau de Instrução</td>
-          <td class="templateContentRow">[$edUSU_GraIns$] [$Label1$]</td>
+          <td class="templateContentRow">
+            [$edUSU_GraIns$] [$Label1$]
+            <i><font color="grey"> [Selecione]</font></i>
+          </td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Área de Conhecimento</td>
-          <td class="templateContentRow">[$edUSU_CodAcn$] [$Label2$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Unidade Trabalho</td>
+          <td class="templateLabelRow">Unidade de Trabalho</td>
           <td class="templateContentRow">[$edUSU_UniTra$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Pronome Adequado</td>
+          <td class="templateLabelRow">Qual o pronome adequado para você?</td>
           <td class="templateContentRow">[$edUSU_ProNom$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Orientação afetivo-sexual</td>
-          <td class="templateContentRow">[$edUSU_AfeSex$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Identidade Gênero</td>
+          <td class="templateLabelRow">Qual sua identidade de gênero?</td>
           <td class="templateContentRow">[$edUSU_IdeGer$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Qtde Filhos/Enteados</td>
-          <td class="templateContentRow">[$edUSU_QtdFil$]</td>
+          <td class="templateLabelRow">Qual sua orientação afetivo-sexual?</td>
+          <td class="templateContentRow">[$edUSU_AfeSex$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Pessoas Moram na Casa</td>
-          <td class="templateContentRow">[$edUSU_QtdPes$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Necessidade de Adaptação Posto</td>
-          <td class="templateContentRow">[$edUSU_NesAda$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Descrição da Necessidade</td>
-          <td class="templateContentRow">[$edUSU_DesAda$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Qtde Filhos/Enteados Moram</td>
-          <td class="templateContentRow">[$edUSU_QtdEnt$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Pai/Mãe Solo</td>
-          <td class="templateContentRow">[$edUSU_PaiMae$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Intolerância/Alergia Alimentar</td>
-          <td class="templateContentRow">[$edUSU_IntAle$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Desloca Trabalho</td>
-          <td class="templateContentRow">[$edUSU_DesTra$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Dieta Alimentar</td>
-          <td class="templateContentRow">[$edUSU_DieAli$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Alergia a Medicamento</td>
-          <td class="templateContentRow">[$edUSU_AleMed$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Medicamentos</td>
-          <td class="templateContentRow">[$edUSU_DesMed$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Animal Estimação</td>
-          <td class="templateContentRow">[$edUSU_PosAni$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Qual Animal</td>
-          <td class="templateContentRow">[$edUSU_AniEst$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Atividade Física</td>
-          <td class="templateContentRow">[$edUSU_AtiFis$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Tamanho Calçado</td>
-          <td class="templateContentRow">[$edUSU_TamCal$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Atividade Mental</td>
-          <td class="templateContentRow">[$edUSU_AtiMen$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Tamanho Camiseta</td>
-          <td class="templateContentRow">[$edUSU_TamCam$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Modelo Camiseta</td>
-          <td class="templateContentRow">[$edUSU_ModCam$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Doador Sangue</td>
-          <td class="templateContentRow">[$edUSU_DoaSan$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Doador Medula</td>
-          <td class="templateContentRow">[$edUSU_DoaMed$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Contato Emergência</td>
-          <td class="templateContentRow">[$edUSU_ConEme$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Telefone Emergência</td>
-          <td class="templateContentRow">[$edUSU_TelEme$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Posição Trabalho</td>
-          <td class="templateContentRow">[$edUSU_PosTra$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Nome Social</td>
-          <td class="templateContentRow">[$edUSU_NomSoc$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Apelido</td>
-          <td class="templateContentRow">[$edUSU_ApeFun$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Raça/Etnia</td>
-          <td class="templateContentRow">[$edUSU_RacCor$] [$Label3$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Religião</td>
-          <td class="templateContentRow">[$edUSU_CodRlr$] [$Label4$]</td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">Deficiente</td>
+          <td class="templateLabelRow">
+            Você possui algum tipo de deficiência?
+          </td>
           <td class="templateContentRow">[$edUSU_DefFis$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Preenche Cota Deficiência</td>
-          <td class="templateContentRow">[$edUSU_CotDef$]</td>
+          <td class="templateLabelRow">Qual tipo de deficiência?</td>
+          <td class="templateContentRow">
+            [$edUSU_CodDef$] [$Label5$]
+            <i><font color="grey"> [Selecione]</font></i>
+          </td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Deficiência</td>
-          <td class="templateContentRow">[$edUSU_CodDef$] [$Label5$]</td>
+          <td class="templateLabelRow">
+            É necessária alguma adaptação ou recurso no seu posto de trabalho?
+          </td>
+          <td class="templateContentRow">[$edUSU_NesAda$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Descreva sua necessidade<b
+              title="Responder com base no tipo deficiência informada. Caso não possua deficiência preencher com o texto Não se aplica"
+            >
+              (<u><font color="grey">i</font></u
+              >)</b
+            >
+          </td>
+          <td class="templateContentRow">[$edUSU_DesAda$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Quantos filhos e enteados você possui?
+          </td>
+          <td class="templateContentRow">[$edUSU_QtdFil$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Quantos filhos e enteados moram com você?
+          </td>
+          <td class="templateContentRow">[$edUSU_QtdEnt$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Você é pai ou mãe solo?</td>
+          <td class="templateContentRow">[$edUSU_PaiMae$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Contando com você, quantas pessoas moram na sua casa?
+          </td>
+          <td class="templateContentRow">[$edUSU_QtdPes$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Como você se desloca para o trabalho?
+          </td>
+          <td class="templateContentRow">[$edUSU_DesTra$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qual sua principal dieta alimentar?</td>
+          <td class="templateContentRow">[$edUSU_DieAli$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Possui alguma intolerância ou alergia alimentar?
+          </td>
+          <td class="templateContentRow">[$edUSU_IntAle$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Possui alguma alergia a medicamentos?
+          </td>
+          <td class="templateContentRow">[$edUSU_AleMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Quais medicamentos é alérgico?<b
+              title="Caso não tenha alergia a medicamentos, preencher o com o texto Não se aplica"
+            >
+              (<u><font color="grey">i</font></u
+              >)</b
+            >
+          </td>
+          <td class="templateContentRow">[$edUSU_DesMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Possui animal de estimação?</td>
+          <td class="templateContentRow">[$edUSU_PosAni$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qual animal de estimação?</td>
+          <td class="templateContentRow">[$edUSU_AniEst$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Realiza atividade física regularmente?
+          </td>
+          <td class="templateContentRow">[$edUSU_AtiFis$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Realiza atividade mental regularmente?
+          </td>
+          <td class="templateContentRow">[$edUSU_AtiMen$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qual o tamanho do seu calçado?</td>
+          <td class="templateContentRow">[$edUSU_TamCal$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Qual seu tamanho de camiseta?</td>
+          <td class="templateContentRow">[$edUSU_TamCam$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Qual modelo de camiseta você prefere?
+          </td>
+          <td class="templateContentRow">[$edUSU_ModCam$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Você é doador de sangue?</td>
+          <td class="templateContentRow">[$edUSU_DoaSan$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Você é doador de medula óssea?</td>
+          <td class="templateContentRow">[$edUSU_DoaMed$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Em caso de emergência, qual o nome da pessoa que devemos contatar?
+          </td>
+          <td class="templateContentRow">[$edUSU_ConEme$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Em caso de emergência, qual telefone devemos contatar?
+          </td>
+          <td class="templateContentRow">[$edUSU_TelEme$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Como você prefere ser chamado?</td>
+          <td class="templateContentRow">[$edUSU_ApeFun$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Nome social</td>
+          <td class="templateContentRow">[$edUSU_NomSoc$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Etnia / Cor</td>
+          <td class="templateContentRow">
+            [$edUSU_RacCor$] [$Label3$]
+            <i><font color="grey"> [Selecione]</font></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">Religião</td>
+          <td class="templateContentRow">
+            [$edUSU_CodRlr$] [$Label4$]
+            <i><font color="grey"> [Selecione]</font></i>
+          </td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Possui laudo médico para enquadramento na cota de Pessoa com
+            Deficiência?
+          </td>
+          <td class="templateContentRow">[$edUSU_CotDef$]</td>
         </tr>
       </table>
     </div>
@@ -361,5 +452,39 @@
         <TransStr strid="TC000001248">Salvar</TransStr>
       </font>
     </a>
+    <script>
+      var CodAcn = document.querySelector('input[name="edUSU_CodAcn"]');
+      CodAcn.setAttribute("placeholder", "6.02.00.00-6");
+
+      var GraIns = document.querySelector('input[name="edUSU_GraIns"]');
+      GraIns.setAttribute("placeholder", "09");
+
+      var CodDef = document.querySelector('input[name="edUSU_CodDef"]');
+      CodDef.setAttribute("placeholder", "09");
+
+      var DesAda = document.querySelector('input[name="edUSU_DesAda"]');
+      DesAda.setAttribute("placeholder", "Não se aplica");
+
+      var DesMed = document.querySelector('input[name="edUSU_DesMed"]');
+      DesMed.setAttribute("placeholder", "Não se aplica");
+
+      var ConEme = document.querySelector('input[name="edUSU_ConEme"]');
+      ConEme.setAttribute("placeholder", "Nome do(a) Esposo(a)");
+
+      var TelEme = document.querySelector('input[name="edUSU_TelEme"]');
+      TelEme.setAttribute("placeholder", "(99) 99999-9999");
+
+      var ApeFun = document.querySelector('input[name="edUSU_ApeFun"]');
+      ApeFun.setAttribute("placeholder", "Apelido");
+
+      var NomSoc = document.querySelector('input[name="edUSU_NomSoc"]');
+      NomSoc.setAttribute("placeholder", "Nome social");
+
+      var RacCor = document.querySelector('input[name="edUSU_RacCor"]');
+      RacCor.setAttribute("placeholder", "01");
+
+      var CodRlr = document.querySelector('input[name="edUSU_CodRlr"]');
+      CodRlr.setAttribute("placeholder", "001");
+    </script>
   </body>
 </html>
