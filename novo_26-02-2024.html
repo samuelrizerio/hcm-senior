@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="cache-control" content="no-cache" />
@@ -129,11 +129,26 @@
         width: 90%;
       }
       .templateLabelRow {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        text-align: right;
       }
       .templateLabelRow::after {
         content: " *";
         color: red;
+      }
+      .BOTAO_B2 {
+        width: 22px;
+        height: calc(2.25rem + 2px);
+        background-image: url(https://documentacao.senior.com.br/tecnologia/5.10.3/Skins/Default/Stylesheets/Images/dropdown-closed.png);
+        border-radius: 0.25rem;
+        border: 1px solid #ced4da;
+      }
+      .LABEL {
+        font-size: 0.9rem;
+        padding-top: 9px;
+        padding-left: 6px;
+        height: calc(2.25rem + 2px);
+        color: #166f3c;
       }
     </style>
     <script type="text/javascript">
@@ -162,7 +177,7 @@
   <body>
     <div id="ok" class="alert alert-success" role="alert">
       <TransStr strid="TC000005038"
-        >Aceite realizado. Preencha até o final e salve para aprovação do
+        >Aceite realizado. Preencha até o fim e salve para aprovação do
         RH.</TransStr
       >
     </div>
@@ -223,9 +238,6 @@
         Clicar("Consultar", "0");
         return false;
       }
-      $(document).ready(function () {
-        $("#EDIT_NORMAL").mask("000.000.000-00"); // Esta é uma máscara para CPF, por exemplo.
-      });
     </script>
     <nav>
       <form class="form-inline my-2 my-lg-0;margin-left:20px;">
@@ -247,17 +259,11 @@
               >)</b
             >
           </td>
-          <td class="templateContentRow">
-            [$edUSU_CodAcn$] [$Label2$]
-            <i><font color="grey"> [Selecione]</font></i>
-          </td>
+          <td class="templateContentRow">[$edUSU_CodAcn$] [$Label2$]</td>
         </tr>
         <tr>
           <td class="templateLabelRow">Grau de Instrução</td>
-          <td class="templateContentRow">
-            [$edUSU_GraIns$] [$Label1$]
-            <i><font color="grey"> [Selecione]</font></i>
-          </td>
+          <td class="templateContentRow">[$edUSU_GraIns$] [$Label1$]</td>
         </tr>
         <tr>
           <td class="templateLabelRow">Unidade de Trabalho</td>
@@ -283,10 +289,14 @@
         </tr>
         <tr>
           <td class="templateLabelRow">Qual tipo de deficiência?</td>
-          <td class="templateContentRow">
-            [$edUSU_CodDef$] [$Label5$]
-            <i><font color="grey"> [Selecione]</font></i>
+          <td class="templateContentRow">[$edUSU_CodDef$] [$Label5$]</td>
+        </tr>
+        <tr>
+          <td class="templateLabelRow">
+            Possui laudo médico para enquadramento na cota de Pessoa com
+            Deficiência?
           </td>
+          <td class="templateContentRow">[$edUSU_CotDef$]</td>
         </tr>
         <tr>
           <td class="templateLabelRow">
@@ -365,7 +375,14 @@
           <td class="templateContentRow">[$edUSU_PosAni$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Qual animal de estimação?</td>
+          <td class="templateLabelRow">
+            Qual animal de estimação?<b
+              title="Caso não tenha anima de estimação, escolha a opção Não se aplica"
+            >
+              (<u><font color="grey">i</font></u
+              >)</b
+            >
+          </td>
           <td class="templateContentRow">[$edUSU_AniEst$]</td>
         </tr>
         <tr>
@@ -415,7 +432,9 @@
           <td class="templateContentRow">[$edUSU_TelEme$]</td>
         </tr>
         <tr>
-          <td class="templateLabelRow">Como você prefere ser chamado?</td>
+          <td class="templateLabelRow">
+            Como você prefere ser chamado (apelido)?
+          </td>
           <td class="templateContentRow">[$edUSU_ApeFun$]</td>
         </tr>
         <tr>
@@ -424,24 +443,11 @@
         </tr>
         <tr>
           <td class="templateLabelRow">Etnia / Cor</td>
-          <td class="templateContentRow">
-            [$edUSU_RacCor$] [$Label3$]
-            <i><font color="grey"> [Selecione]</font></i>
-          </td>
+          <td class="templateContentRow">[$edUSU_RacCor$] [$Label3$]</td>
         </tr>
         <tr>
           <td class="templateLabelRow">Religião</td>
-          <td class="templateContentRow">
-            [$edUSU_CodRlr$] [$Label4$]
-            <i><font color="grey"> [Selecione]</font></i>
-          </td>
-        </tr>
-        <tr>
-          <td class="templateLabelRow">
-            Possui laudo médico para enquadramento na cota de Pessoa com
-            Deficiência?
-          </td>
-          <td class="templateContentRow">[$edUSU_CotDef$]</td>
+          <td class="templateContentRow">[$edUSU_CodRlr$] [$Label4$]</td>
         </tr>
       </table>
     </div>
