@@ -6,17 +6,11 @@ Definir Alfa cNumEmp;
 Definir Alfa cTipCol;
 Definir Alfa cNumCad;
 Definir Alfa xMensagem;
-
-Definir Numero nNumEmp;
-Definir Numero nTipCol;
-Definir Numero nNumCad;
-Definir Numero nnNumEmp;
-Definir Numero nnTipCol;
-Definir Numero nnNumCad;
-Definir Numero nCodUsu;
-Definir Funcao MinhaMatricula();
-
+Definir Alfa edUSU_TxtAce;
+Definir Alfa aDataExtenso;
+Definir Alfa aHoraExtenso;
 Definir Data edUSU_DatReg;
+Definir Funcao MinhaMatricula();
 
 Se(CodOpe = "Iniciando")
 {
@@ -32,7 +26,8 @@ Se(CodOpe = "Iniciando")
   WHERE USU_NumEmp = :nNumEmp AND USU_TipCol = :nTipCol AND USU_NumCad = :nNumCad ORDER BY USU_DatReg DESC";
 
 	Definir Data dDatReg;
-	dDatReg = DatHoj;
+	dDatReg = DatSis;
+	nHorReg = horsis;
 
 	@consultar se tem na tabela usu_tvalESG@
 	SQL_Criar(aCursor2);
@@ -68,6 +63,12 @@ Se(CodOpe = "Iniciando")
 		edUSU_TipCol = nTipCol;
 		edUSU_NumCad = nNumCad;
 		edUSU_DatReg = dDatReg;
+		edUSU_HorReg = nHorReg;
+
+		@faz as conversoes de data para string de data e hora para string de hora@
+		ConverteMascara(3, edUSU_DatReg, aDataExtenso, "DD/MM/YYYY");
+		ConverteMascara(4, edUSU_HorReg, aHoraExtenso, "hh:mm");
+		edUSU_TxtAce = "Aceito pelo colaborador em: " + aDataExtenso + " às " + aHoraExtenso;
 		Se((edUSU_NumEmp <> 0) e (edUSU_TipCol <> 0) e (edUSU_NumCad <> 0) e (edUSU_DatReg <> 0))
 		{
 			IniciarTransacao();
@@ -76,12 +77,16 @@ Se(CodOpe = "Iniciando")
                            USU_TipCol,                                                              \
                            USU_NumCad,                                                              \
                            USU_DatReg,                                                              \
+                           USU_HorReg,                                                              \
+                           USU_TxtAce,                                                              \
                            USU_SimNao                                                               \
                        ) VALUES (                                                                   \
                            :edUSU_NumEmp,                                                           \
                            :edUSU_TipCol,                                                           \
                            :edUSU_NumCad,                                                           \
                            :edUSU_DatReg,                                                           \
+                           :edUSU_HorReg,                                                           \
+                           :edUSU_TxtAce,                                                           \
                            'N'                                                                      \
                        )", xErro, xMensagem);
 			Se(xErro = 0)
