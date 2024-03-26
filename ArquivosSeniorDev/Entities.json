@@ -1,0 +1,15 @@
+{
+    entities: [
+        {
+            name: "TabelasCustomizadas.R034FUN_Custom",
+            scextension: "TabelasCustomizadas.SC_R034FUN_Custom",
+            dataset: "DsR034FUN"
+        }
+    ],
+    systemcomponents: [
+        {
+            extension: "TabelasCustomizadas.SC_R034FUN_Custom",
+            base: "com.senior.rh.entities.readonly.SCR034FUN"
+        }
+    ]
+}

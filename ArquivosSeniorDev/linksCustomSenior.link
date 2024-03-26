@@ -1,0 +1,48 @@
+{
+links: [{
+         // Relatório Apuração para o gestor
+         name: "HRAP504.APU.GESTOR",
+         type: "REPORT",
+         title: "Relatório de Apuração",
+         tags: ["gestor"],
+         productName: "ronda",
+         moduleName: "HR",
+         resource: "HRAP504.APU",
+         skipParamsScreen: false
+        },
+        {
+         // Relatório Incidentes do Ponto
+         name : "HRCL110.GER.GESTOR",
+         type: "REPORT",
+         title : "Relatório de Incidentes",
+         tags : ["gestor"],
+         productName : "ronda",
+         moduleName : "HR",
+         resource : "HRCL110.GER",
+         skipParamsScreen : false
+        },
+        {
+         // Relatório Banco de Horas
+         name : "HRBH109.GER.GESTOR",
+         type: "REPORT",
+         title : "Relatório Banco de Horas",
+         tags : ["gestor"],
+         productName : "ronda",
+         moduleName : "HR",
+         resource : "HRBH109.GER",
+         skipParamsScreen : false
+        },
+        {
+         //Tela Quadro de Horários
+         name: "stQuadroHorarios",
+         title: "Quadro de Horários",
+         resource: "http://192.168.104.177/bavetorh/do?action=connect&appName=ronda&user=seniorpoa&pswd=poasenior&xmlCmd=<?xml version='1.0' encoding='UTF-8'?><command><handler type='system'><entrypoint>showform</entrypoint></handler><inputs><formname>FRGERHOR</formname></inputs></command>",
+         visibleToGroups: ["GERENTES", "Master"],
+         tags: ["gestor", "colaborador"],
+         type: "URL",
+         hierarchy: ["Quadro de Horários"],
+         visibleMenu: true,
+         method: POST
+        }                                   
+       ]
+}
